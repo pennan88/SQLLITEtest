@@ -22,14 +22,13 @@ namespace SQLLITE
                 {
                     while (reader.Read())
                     {
-                        var title = reader.GetString(0);
-                        var publishers = reader.GetString(1);
-                        var year = reader.GetString(2);
-                        var sales = reader.GetString(3);
-                        var score = reader.GetString(4);
+                        var Title = reader.GetString(0);
+                        var Publisher = reader.IsDBNull(1) ? "No info" : reader.GetString(1);
+                        var year = reader.IsDBNull(1) ? "No info" : reader.GetString(2);
+                        var sales = reader.IsDBNull(1) ? "0" : reader.GetString(3);
+                        var score = reader.IsDBNull(1) ? "0" : reader.GetString(4);
 
-
-                        Console.WriteLine($"Game name: {title} \n Publishers: {publishers} \n Year: {year} \n Sales: {sales} Millions \n Score: {score}/100 ");
+                        Console.WriteLine($"Game Title: {Title} \n Publisher: {Publisher}\n Year: {year} \n Sales:{sales} Millions \n Score: {score}/100\n");
                     }
                 }
             }
